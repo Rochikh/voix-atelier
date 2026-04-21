@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le cycle voix-atelier</title>
+<meta name="description" content="Un protocole en quatre temps pour produire avec l'IA sans perdre sa voix. Méthode par Rochane Kherbouche.">
+<meta name="author" content="Rochane Kherbouche">
+<meta name="keywords" content="IA, intelligence artificielle, pédagogie, écriture, méthode, Claude, voix-atelier, Kolb, mode bourré">
+
+<!-- Open Graph pour LinkedIn, Facebook, WhatsApp -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Le cycle voix-atelier">
+<meta property="og:description" content="Un protocole en quatre temps pour produire avec l'IA sans perdre sa voix.">
+<meta property="og:url" content="https://voix-atelier.rochane.fr">
+<meta property="og:image" content="https://voix-atelier.rochane.fr/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le cycle voix-atelier">
+<meta name="twitter:description" content="Un protocole en quatre temps pour produire avec l'IA sans perdre sa voix.">
+<meta name="twitter:image" content="https://voix-atelier.rochane.fr/assets/og-image.png">
+
+<link rel="canonical" href="https://voix-atelier.rochane.fr">
+
+<style>
+  :root {
+    --bg-page: #f7f6f2;
+    --bg-card: #ffffff;
+    --bg-surface: #f1efe8;
+    --bg-info: #e6f1fb;
+    --text-primary: #2c2c2a;
+    --text-secondary: #5f5e5a;
+    --text-tertiary: #888780;
+    --text-info: #0c447c;
+    --border: rgba(0, 0, 0, 0.1);
+    --border-dashed: rgba(0, 0, 0, 0.25);
+    --purple-bg: #eeedfe;
+    --purple-border: #534ab7;
+    --purple-text: #3c3489;
+    --teal-bg: #e1f5ee;
+    --teal-border: #0f6e56;
+    --teal-text: #0f6e56;
+    --gray-bg: #f1efe8;
+    --gray-border: #5f5e5a;
+    --gray-text: #444441;
+    --link: #185fa5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-page: #1a1a18;
+      --bg-card: #2c2c2a;
+      --bg-surface: #242422;
+      --bg-info: #042c53;
+      --text-primary: #e8e6de;
+      --text-secondary: #b4b2a9;
+      --text-tertiary: #888780;
+      --text-info: #85b7eb;
+      --border: rgba(255, 255, 255, 0.15);
+      --border-dashed: rgba(255, 255, 255, 0.3);
+      --purple-bg: #26215c;
+      --purple-border: #7f77dd;
+      --purple-text: #cecbf6;
+      --teal-bg: #04342c;
+      --teal-border: #5dcaa5;
+      --teal-text: #9fe1cb;
+      --gray-bg: #3a3a37;
+      --gray-border: #888780;
+      --gray-text: #d3d1c7;
+      --link: #85b7eb;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    background: var(--bg-page);
+    margin: 0;
+    padding: 2rem 1rem;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 720px; margin: 0 auto; }
+
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0 0 8px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .byline {
+    font-size: 13px;
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+
+  .divider {
+    height: 0.5px;
+    background: var(--border);
+    margin: 2rem 0;
+  }
+
+  .problem-card {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .problem-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .cycle-card {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cycle-card h2 {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 0 4px;
+  }
+
+  .cycle-tagline {
+    font-size: 13px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0 0 16px;
+  }
+
+  svg { width: 100%; height: auto; display: block; }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin-bottom: 2rem;
+  }
+
+  .step-card {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+  }
+
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 8px;
+  }
+
+  .badge-purple { background: var(--purple-bg); color: var(--purple-text); }
+  .badge-teal   { background: var(--teal-bg);   color: var(--teal-text); }
+  .badge-gray   { background: var(--gray-bg);   color: var(--gray-text); }
+
+  .step-title { font-size: 16px; font-weight: 500; }
+
+  .step-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .rule-card {
+    background: var(--bg-info);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .rule-card .eyebrow { color: var(--text-info); margin-bottom: 8px; }
+  .rule-card p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text-info);
+    margin: 0;
+  }
+
+  .filiations-card {
+    background: var(--bg-surface);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .filiations-card .eyebrow { margin-bottom: 14px; }
+
+  .filiation-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .filiation-row:last-child { margin-bottom: 0; }
+
+  .filiation-label {
+    min-width: 110px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .filiation-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .cta-card {
+    background: var(--bg-card);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .cta-card h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 8px;
+  }
+
+  .cta-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 16px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: var(--text-primary);
+    color: var(--bg-page);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .cta-button:hover { text-decoration: none; opacity: 0.85; }
+
+  .languages {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-tertiary);
+    margin: 1.5rem 0;
+  }
+
+  .languages a { margin: 0 8px; }
+
+  footer {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  footer a { color: var(--text-tertiary); }
+
+  @media (max-width: 600px) {
+    body { padding: 1rem 0.75rem; }
+    h1 { font-size: 24px; }
+    .filiation-row { flex-direction: column; gap: 4px; }
+    .filiation-label { min-width: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="eyebrow">Méthode IA et production</div>
+    <h1>Le cycle voix-atelier</h1>
+    <p class="subtitle">Produire avec l'IA sans perdre sa voix. Une méthode itérative en quatre temps.</p>
+    <p class="byline">par Rochane Kherbouche, avril 2026</p>
+  </header>
+
+  <div class="divider"></div>
+
+  <section class="problem-card">
+    <div class="eyebrow">Le problème</div>
+    <p>Une IA entraînée à minimiser la surprise face au texte humain converge vers la moyenne statistique. Sans contre-mesure, toute production assistée tend vers le consensuel, le lissé, le substituable. Le cycle voix-atelier est une discipline pour casser cette régression à chaque tour.</p>
+  </section>
+
+  <section class="cycle-card">
+    <h2>Le cycle, vue d'ensemble</h2>
+    <p class="cycle-tagline">On parle, on monte, on reparle, on livre.</p>
+
+    <svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma du cycle voix-atelier en quatre temps">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <rect x="60" y="60" width="200" height="80" rx="10" fill="var(--purple-bg)" stroke="var(--purple-border)" stroke-width="0.5"/>
+      <text x="160" y="92" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="14" font-weight="500" fill="var(--purple-text)">1. Le brut</text>
+      <text x="160" y="116" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--purple-text)">Saisie sans filtre</text>
+
+      <rect x="420" y="60" width="200" height="80" rx="10" fill="var(--teal-bg)" stroke="var(--teal-border)" stroke-width="0.5"/>
+      <text x="520" y="92" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="14" font-weight="500" fill="var(--teal-text)">2. La tension</text>
+      <text x="520" y="116" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--teal-text)">Montée conceptuelle</text>
+
+      <rect x="420" y="240" width="200" height="80" rx="10" fill="var(--purple-bg)" stroke="var(--purple-border)" stroke-width="0.5"/>
+      <text x="520" y="272" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="14" font-weight="500" fill="var(--purple-text)">3. La reprise</text>
+      <text x="520" y="296" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--purple-text)">Voix informée</text>
+
+      <rect x="60" y="240" width="200" height="80" rx="10" fill="var(--gray-bg)" stroke="var(--gray-border)" stroke-width="0.5"/>
+      <text x="160" y="272" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="14" font-weight="500" fill="var(--gray-text)">4. La pièce</text>
+      <text x="160" y="296" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--gray-text)">Production située</text>
+
+      <line x1="262" y1="100" x2="418" y2="100" stroke="var(--text-secondary)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="520" y1="142" x2="520" y2="238" stroke="var(--text-secondary)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <line x1="418" y1="280" x2="262" y2="280" stroke="var(--text-secondary)" stroke-width="1.5" marker-end="url(#arrow)"/>
+      <path d="M 160 238 L 160 190 L 160 142" fill="none" stroke="var(--text-secondary)" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+
+      <text x="160" y="195" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--text-secondary)">bouclage</text>
+
+      <rect x="280" y="170" width="120" height="40" rx="6" fill="none" stroke="var(--border-dashed)" stroke-width="0.5" stroke-dasharray="3 3"/>
+      <text x="340" y="186" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--text-secondary)">règle</text>
+      <text x="340" y="200" text-anchor="middle" dominant-baseline="central" font-family="inherit" font-size="12" fill="var(--text-secondary)">d'étanchéité</text>
+    </svg>
+  </section>
+
+  <section class="steps-grid">
+    <div class="step-card">
+      <div class="step-header">
+        <span class="badge badge-purple">Temps 1</span>
+        <span class="step-title">Le brut</span>
+      </div>
+      <p class="step-body">Saisie sans filtre. Parole vocale libre ou extraction factuelle brute. Objectif, capter la singularité avant toute interprétation.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="badge badge-teal">Temps 2</span>
+        <span class="step-title">La tension</span>
+      </div>
+      <p class="step-body">Le matériau passe à travers plusieurs cadres théoriques contradictoires. Gestalt, subsomption par penseurs, croisements. Objectif, produire de la matière analytique non consensuelle.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="badge badge-purple">Temps 3</span>
+        <span class="step-title">La reprise</span>
+      </div>
+      <p class="step-body">Retour à la parole brute, nourrie par la tension. Ce qui a bougé, ce qui résiste, ce qui reste obscur. Temps pivot, protège le geste de l'aplatissement analytique.</p>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <span class="badge badge-gray">Temps 4</span>
+        <span class="step-title">La pièce</span>
+      </div>
+      <p class="step-body">Assemblage des trois couches (faits, analyse, voix) sous contrainte de format et de public. L'IA assiste, n'invente plus. Le contenu final sort, puis nourrit le cycle suivant.</p>
+    </div>
+  </section>
+
+  <section class="rule-card">
+    <div class="eyebrow">Règle d'étanchéité</div>
+    <p>Chaque temps a sa grammaire propre. Parler en mode bourré après avoir lu dix auteurs contamine la voix. Analyser avant d'avoir capté l'intuition confisque le geste. Produire avant la reprise aplatit la pièce. L'étanchéité entre les temps vaut autant que leur succession.</p>
+  </section>
+
+  <section class="filiations-card">
+    <div class="eyebrow">Filiations assumées</div>
+
+    <div class="filiation-row">
+      <div class="filiation-label">Temps 1 et 3</div>
+      <div class="filiation-text">Inspirés du mode bourré et de la configuration geste-matière formalisés par Benoît Raphaël et Thomas Mahier (newsletter Génération IA, 2026).</div>
+    </div>
+
+    <div class="filiation-row">
+      <div class="filiation-label">Temps 2</div>
+      <div class="filiation-text">Mobilise un protocole d'élévation analytique formalisé par l'auteur à partir de traditions établies (Gestalt, phénoménologie, archéologie du savoir, steelmanning).</div>
+    </div>
+
+    <div class="filiation-row">
+      <div class="filiation-label">Forme cyclique</div>
+      <div class="filiation-text">Inspiration lointaine du cycle d'apprentissage expérientiel de Kolb, sans reprise de son vocabulaire.</div>
+    </div>
+
+    <div class="filiation-row">
+      <div class="filiation-label">Apport propre</div>
+      <div class="filiation-text">La mise en cycle itérative, l'identification du temps 3 comme pivot protecteur du geste, la règle d'étanchéité, la transposition pédagogique pour la formation.</div>
+    </div>
+  </section>
+
+  <section class="cta-card">
+    <h3>Documentation complète et skill Claude</h3>
+    <p>Protocole détaillé, skill installable, prompts pour ChatGPT et Gemini, cas d'usage vérifiés.</p>
+    <a href="https://github.com/Rochikh/voix-atelier" class="cta-button">Voir le dépôt GitHub</a>
+  </section>
+
+  <div class="languages">
+    <a href="https://github.com/Rochikh/voix-atelier/blob/main/README.md">🇫🇷 Français</a>
+    <a href="https://github.com/Rochikh/voix-atelier/blob/main/README.en.md">🇬🇧 English</a>
+    <a href="https://github.com/Rochikh/voix-atelier/blob/main/README.ar.md">🇸🇦 العربية</a>
+  </div>
+
+  <footer>
+    <p>
+      Rochane Kherbouche, avril 2026. <a href="https://ia.rochane.fr">ia.rochane.fr</a><br>
+      Licence <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </p>
+  </footer>
+
+</div>
+</body>
+</html>
